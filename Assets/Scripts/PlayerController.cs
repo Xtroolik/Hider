@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Rigidbody rb;
+    public float jumpForce = 5f;
     public float moveSpeed = 5f;
     // Start is called before the first frame update
     void Start()
     {
-        
+      rb = GetComponent<Rigidbody>();  
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // transform.position += new Vector3(1, 0, 0) * Time.deltaTime;
 
@@ -32,5 +34,21 @@ public class PlayerController : MonoBehaviour
         //transform.position += movement;
 
         transform.Translate(movement);
+
+        
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+    }
+    void Jump()
+    {
+        if (transform.position.y <= Mathf.Epsilon)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 }
