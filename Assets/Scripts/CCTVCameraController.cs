@@ -29,14 +29,15 @@ public class CCTVCameraController : MonoBehaviour
         //  CheckAngleLeft();
         //  CheckAngleRight();
         transform.rotation = Quaternion.Euler(new Vector3(0, Mathf.PingPong(Time.time, 9) * 10 - 45, 0));
-        CheckIfPlayerVisible();
+        //CheckIfPlayerVisible();
     }
-    void CheckIfPlayerVisible()
+    /* void CheckIfPlayerVisible()
     {
         Debug.DrawRay(cameraLens.position, cameraLens.TransformDirection(Vector3.down) * 100, Color.yellow);
 
 
     }
+    */
     /*
     void TurnRight()
     {

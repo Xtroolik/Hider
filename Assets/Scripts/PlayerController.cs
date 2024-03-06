@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         // transform.position += new Vector3(1, 0, 0) * Time.deltaTime;
 
         float x = Input.GetAxisRaw("Horizontal");
-        Debug.Log(x);
+        // Debug.Log(x);
 
         Vector3 movement = Vector3.right * x;
 
@@ -50,5 +50,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("BBBB");
     }
 }
