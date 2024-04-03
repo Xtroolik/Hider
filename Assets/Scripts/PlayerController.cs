@@ -53,6 +53,15 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("BBBB");
+        if (other.CompareTag("LevelEnd"))
+        {
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().OnWin();
+
+        }
+        if (other.CompareTag("CameraView"))
+        {
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().OnLoss();
+
+        }
     }
 }
